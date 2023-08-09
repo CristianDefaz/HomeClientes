@@ -44,15 +44,35 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" action="../../controllers/cliente.controller.php?op=login" method="post">
+                                    <?php
+                                        if (isset($_GET['op'])) {
+                                            switch ($_GET['op']) {  //TODO: Clausula de desicion para obtener variable tipo GET
+                                                case '1':
+                                        ?>
+                                                    <div class="form-group">
+                                                        <div class="alert alert-danger">
+                                                            El usuario o la contrasenia son incorrectos
+                                                        </div>
+                                                    </div>
+                                                <?php
+                                                    break;
+                                                case '2':
+                                                ?>
+                                                    <div class="form-group">
+                                                        <div class="alert alert-danger">
+                                                            Por favor, llene las cajas de texto
+                                                        </div>
+                                                    </div>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                            <input type="text" class="form-control form-control-user" id="em_correo" name="em_correo" aria-describedby="emailHelp" placeholder="Enter Email Address...">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                            <input type="password" class="form-control form-control-user" id="em_contrasena" name="em_contrasena" placeholder="Password">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -61,9 +81,9 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
-                                        </a>
+                                        </button>
                                         <hr>          
                                     </form>
                                     <div class="text-center">

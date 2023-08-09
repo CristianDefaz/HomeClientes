@@ -1,8 +1,9 @@
-<!-- Navbar Start -->
+<!-- Navbar Start -->   
+<?php include_once('../../config/sesiones.php') ?>
 <div class="container-fluid p-0 nav-bar">
         <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
             <a href="" class="navbar-brand">
-                <h1 class="m-0 display-4 font-weight-bold text-uppercase text-white">Gymnast</h1>
+                <h1 class="m-0 display-4 font-weight-bold text-uppercase text-white">Gymnasio</h1>
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
@@ -21,7 +22,14 @@
                         </div>
                     </div>
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
-                    <a href="../../login.php" class="nav-item nav-link">Inicio de sesion</a>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php error_reporting(0); echo  $_SESSION['em_nombre'] . ' ' .$_SESSION ['em_apellido']?></span>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="../html/salir.php">Cerrar sesion</a>
+                            </div>
+                        </div>
                 </div>
 
             </div>

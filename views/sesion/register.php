@@ -36,74 +36,79 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Crear Cuenta!</h1>
                             </div>
-                            <form class="user">
-                                <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" name="cli_cedula" id="cli_cedula"
-                                        placeholder="Cedula">
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" name="cli_nombre" id="cli_nombre"
-                                            placeholder="Nombre">
+
+                            <form id="Clientes_form">
+                                <div class="modal-body">
+                                    <input type="hidden" name="cliente_id" id="cliente_id">
+
+                                    <div class="form-group">
+                                        <label for="cli_cedula" class="control-label">Cedula</label>
+                                        <input type="text" name="cli_cedula" id="cli_cedula" class="form-control" required>
+                                        <small id="cedulaError" class="text-danger"></small>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" name="cli_apellido" id="cli_apellido"
-                                            placeholder="Apellido">
+
+                                    <div class="form-group">
+                                    <label for="cli_nombre" class="control-label">Nombres</label>
+                                    <input type="text" name="cli_nombre" id="cli_nombre" class="form-control"  required>
                                     </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="date" class="form-control form-control-user" name="cli_fecha_nacimiento" id="cli_fecha_nacimiento"
-                                            placeholder="Fecha de nacimiento">
+
+                                    <div class="form-group">
+                                    <label for="cli_apellido" class="control-label">Apellidos</label>
+                                        <input type="text" name="cli_apellido" id="cli_apellido" class="form-control" required>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <select type="text" class="form-control"  name="cli_genero" id="cli_genero"
-                                            >
-                                            <option value="Masculino">Masculino</option>
+
+                                    <div class="form-group">
+                                    <label for="cli_fecha_nacimiento" class="control-label">Fecha nacimiento</label>
+                                        <input type="date" name="cli_fecha_nacimiento" id="cli_fecha_nacimiento" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                    <label for="cli_genero" class="control-label">Género</label>
+                                    <select name="cli_genero" id="cli_genero" class="form-control" required>
+                                        <option value="Masculino">Masculino</option>
                                         <option value="Femenino">Femenino</option>
-                                            </select>
+                                    </select>
                                     </div>
-                                </div>
 
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" name="cli_peso" id="cli_peso"
-                                            placeholder="Peso">
+                                    <div class="form-group">
+                                    <label for="cli_altura" class="control-label">Altura (Metros)</label>
+                                        <input type="text" name="cli_altura" id="cli_altura" class="form-control" required>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" name="cli_altura" id="cli_altura"
-                                            placeholder="Altura">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" name="cli_direccion" id="cli_direccion"
-                                            placeholder="Dirección">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" name="cli_telefono" id="cli_telefono"
-                                            placeholder="Teléfono">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" name="cli_correo" id="cli_correo"
-                                        placeholder="correo">
-                                </div>
-                                <div class="form-group">
                                     
-                                        <input type="password" class="form-control form-control-user"
-                                        name="cli_contraseña" id="cli_contraseña" placeholder="contraseña">
-                                  
-                                  
-                                </div>
-                                <a href="login.html" type="submit" class="btn btn-primary btn-user btn-block">
-                                    Registrar Cuenta 
-                                </a>
-                                <hr>
-                               
-                            </form>
+                                    <div class="form-group">
+                                    <label for="cli_peso" class="control-label">Peso (KG)</label>
+                                        <input type="text" name="cli_peso" id="cli_peso" class="form-control" pattern="[0-9]+(\.[0-9]+)?" minlength="1" maxlength="10" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                    <label for="cli_telefono" class="control-label">Telefono</label>
+                                        <input type="text" name="cli_telefono" id="cli_telefono" class="form-control" numeros:  pattern="[0-9]+" minlength="10" maxlength="10"required>
+                                    </div>
+
+                                    <div class="form-group">
+                                    <label for="cli_direccion" class="control-label">Direccion</label>
+                                        <input type="text" name="cli_direccion" id="cli_direccion" class="form-control" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}"  maxlength="40"required>
+                                    </div>       
+                                    
+                                    <div class="form-group">
+                                    <label for="em_correo" class="control-label">Correo</label>
+                                        <input type="mail" name="cli_correo" id="cli_correo" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                    <label for="em_contrasena" class="control-label">Contrasena</label>
+                                        <input type="text" name="cli_contrasena" id="cli_contrasena" class="form-control" required>
+                                    </div>
+
+                                   
+                                    <input type="hidden" name="id_empleado" id="id_empleado" value="">
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary" id="btnGuardar" disabled>Guardar</button>
+                                        <button type="button" class="btn btn-secondary" onclick="limpiar()" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                </form>
+
                             <hr>
                             <div class="text-center">
                                 <a class="small" href="forgot-password.html">Olvido su Contraseña?</a>
@@ -118,7 +123,7 @@
         </div>
 
     </div>
-
+    
     <!-- Bootstrap core JavaScript-->
     <script src="../../Plog/vendor/jquery/jquery.min.js"></script>
     <script src="../../Plog/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -128,6 +133,169 @@
 
     <!-- Custom scripts for all pages-->
     <script src="../../Plog/js/sb-admin-2.min.js"></script>
+
+
+    <script src="./registro.js"></script>
+
+    <script>
+
+/*-------------------------------------------------------------solo letras------------------------------------*/
+// Función para bloquear la entrada de números en un campo de texto
+function blockNumbersInput(inputElement) {
+  inputElement.addEventListener('keydown', (event) => {
+    // Obtener el código de la tecla pulsada
+    const keyCode = event.which || event.keyCode;
+
+    // Permitir las teclas de control (por ejemplo, las teclas de flecha, retroceso, etc.)
+    if (event.ctrlKey || event.altKey || event.metaKey || keyCode === 8 || keyCode === 9) {
+      return;
+    }
+
+    // Bloquear la entrada si la tecla es un número (códigos de teclas del 0 al 9 y teclado numérico)
+    if ((keyCode >= 48 && keyCode <= 57) || (keyCode >= 96 && keyCode <= 105)) {
+      event.preventDefault();
+    }
+  });
+}
+
+// Obtener la referencia a los elementos de entrada de nombres y apellidos
+const nombreInputElement = document.getElementById('cli_nombre');
+const apellidoInputElement = document.getElementById('cli_apellido');
+
+// Aplicar la restricción de no permitir números en ambos campos
+blockNumbersInput(nombreInputElement);
+blockNumbersInput(apellidoInputElement);
+
+
+/*-------------------------------------------------------------solo numeross------------------------------------*/
+
+// Función para bloquear la entrada que no sea números en un campo de texto
+function blockNonNumbersInput(inputElement) {
+  inputElement.addEventListener('keydown', (event) => {
+    // Obtener el código de la tecla pulsada
+    const keyCode = event.which || event.keyCode;
+
+    // Permitir las teclas de control (por ejemplo, las teclas de flecha, retroceso, etc.)
+    if (event.ctrlKey || event.altKey || event.metaKey || keyCode === 8 || keyCode === 9) {
+      return;
+    }
+
+    // Bloquear la entrada si la tecla no es un número (códigos de teclas del 0 al 9 y teclado numérico)
+    if (!((keyCode >= 48 && keyCode <= 57) || (keyCode >= 96 && keyCode <= 105))) {
+      event.preventDefault();
+    }
+  });
+}
+
+// Obtener la referencia a los elementos de entrada de nombres y apellidos
+const telefonoInputElement = document.getElementById('cli_telefono');
+const pesoInputElement = document.getElementById('cli_peso');
+
+
+// Aplicar la restricción de solo permitir números en ambos campos
+blockNonNumbersInput(telefonoInputElement);
+blockNonNumbersInput(pesoInputElement);
+
+
+
+/*-------------------------------------------------------------solo numeros y Punto------------------------------------*/
+
+// Función para bloquear la entrada que no sean números y puntos en un campo de texto
+function blockNonNumbersAndDecimalInput(inputElement) {
+  inputElement.addEventListener('keydown', (event) => {
+    // Obtener el código de la tecla pulsada
+    const keyCode = event.which || event.keyCode;
+
+    // Permitir las teclas de control (por ejemplo, las teclas de flecha, retroceso, etc.)
+    if (event.ctrlKey || event.altKey || event.metaKey || keyCode === 8 || keyCode === 9) {
+      return;
+    }
+
+    // Permitir números y el punto decimal (códigos de teclas del 0 al 9, teclado numérico y el punto)
+    if (
+      (keyCode >= 48 && keyCode <= 57) || // Números desde el teclado principal
+      (keyCode >= 96 && keyCode <= 105) || // Números desde el teclado numérico
+      keyCode === 110 || keyCode === 190 // Punto decimal (tanto el punto como el numpad decimal)
+    ) {
+      // Verificar que no haya más de un punto decimal en el campo
+      if ((keyCode === 110 || keyCode === 190) && inputElement.value.includes('.')) {
+        event.preventDefault();
+      }
+    } else {
+      event.preventDefault();
+    }
+  });
+}
+
+// Obtener la referencia a los elementos de entrada de nombres y apellidos
+const alturaInputElement = document.getElementById('cli_altura');
+
+// Aplicar la restricción de solo permitir números y puntos en ambos campos
+blockNonNumbersAndDecimalInput(alturaInputElement);
+
+
+/*-------------------------------------------------------------FIN------------------------------------*/
+
+
+
+        var cedulaInput = document.getElementById("cli_cedula");
+        var cedulaError = document.getElementById("cedulaError");
+        var btnGuardar = document.getElementById("btnGuardar");
+
+        cedulaInput.addEventListener("blur", validarCedula);
+
+        function validarCedula() {
+            var cedula = cedulaInput.value;
+
+            if (esCedulaValida(cedula) && esCedulaProvinciaEcuador(cedula) && validarAlgoritmoCedula(cedula)) {
+                cedulaError.textContent = "";
+                btnGuardar.disabled = false;
+            } else {
+                cedulaError.textContent = "La cédula no es válida";
+                btnGuardar.disabled = true;
+            }
+        }
+
+        function esCedulaValida(cedula) {
+            // Validación básica de longitud y formato numérico
+            if (cedula.length !== 10 || !/^\d{10}$/.test(cedula)) {
+                return false;
+            }
+            return true;
+        }
+
+        function esCedulaProvinciaEcuador(cedula) {
+            // Obtener el código de provincia
+            var provincia = parseInt(cedula.substr(0, 2));
+
+            // Verificar si la provincia está en el rango de provincias de Ecuador
+            if (provincia >= 1 && provincia <= 24) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function validarAlgoritmoCedula(cedula) {
+            var total = 0;
+            var coeficientes = [2, 1, 2, 1, 2, 1, 2, 1, 2];
+            var digitoVerificador = parseInt(cedula.substring(9, 10));
+
+            for (var i = 0; i < 9; i++) {
+                var digito = parseInt(cedula.substring(i, i + 1));
+                var resultado = digito * coeficientes[i];
+                if (resultado > 9) {
+                    resultado -= 9;
+                }
+                total += resultado;
+            }
+
+            var residuo = total % 10;
+            var resultadoFinal = residuo === 0 ? 0 : 10 - residuo;
+
+            return resultadoFinal === digitoVerificador;
+        }
+    </script>
 
 </body>
 
