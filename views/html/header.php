@@ -24,7 +24,7 @@
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php error_reporting(0); echo  $_SESSION['em_nombre'] . ' ' .$_SESSION ['em_apellido']?></span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php error_reporting(0); echo  $_SESSION['cli_nombre'] . ' ' .$_SESSION ['cli_apellido']?></span>
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="../html/salir.php">Cerrar sesion</a>

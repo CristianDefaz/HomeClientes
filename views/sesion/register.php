@@ -37,7 +37,7 @@
                                 <h1 class="h4 text-gray-900 mb-4">Crear Cuenta!</h1>
                             </div>
 
-                            <form id="Clientes_form">
+                            <form id="Registro_form">
                                 <div class="modal-body">
                                     <input type="hidden" name="cliente_id" id="cliente_id">
 
@@ -99,10 +99,7 @@
                                     <label for="em_contrasena" class="control-label">Contrasena</label>
                                         <input type="text" name="cli_contrasena" id="cli_contrasena" class="form-control" required>
                                     </div>
-
-                                   
-                                    <input type="hidden" name="id_empleado" id="id_empleado" value="">
-                                    </div>
+                                </div>
                                     <div class="modal-footer">
                                     <button type="submit" class="btn btn-primary" id="btnGuardar" disabled>Guardar</button>
                                         <button type="button" class="btn btn-secondary" onclick="limpiar()" data-dismiss="modal">Cerrar</button>
@@ -124,6 +121,9 @@
 
     </div>
     
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- Bootstrap core JavaScript-->
     <script src="../../Plog/vendor/jquery/jquery.min.js"></script>
     <script src="../../Plog/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

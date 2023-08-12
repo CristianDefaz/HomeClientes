@@ -69,10 +69,10 @@
                                         }
                                         ?>
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="em_correo" name="em_correo" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                                            <input type="text" class="form-control form-control-user" id="cli_correo" name="cli_correo" aria-describedby="emailHelp" placeholder="Enter Email Address...">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" id="em_contrasena" name="em_contrasena" placeholder="Password">
+                                            <input type="password" class="form-control form-control-user" id="cli_contrasena" name="cli_contrasena" placeholder="Password">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
