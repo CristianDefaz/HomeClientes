@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<?php require_once('../html/head.php')  ?>
+<?php require_once('../html/head.php') ?>
 </head>
 
 <body class="bg-white">

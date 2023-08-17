@@ -10,18 +10,29 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav ml-auto p-4 bg-secondary">
-                    <a href="index.html" class="nav-item nav-link active">Menu</a>
-                    <a href="about.html" class="nav-item nav-link">Nosotros</a>
-                    <a href="feature.html" class="nav-item nav-link">Caracteristicas</a>
-                    <a href="class.html" class="nav-item nav-link">Clases</a>
+                    <a href="../Dashboard/home.php" class="nav-item nav-link active">Menu</a>
+                    <a href="../Dashboard/about.php" class="nav-item nav-link">Nosotros</a>
+                    <a href="../Dashboard/feature.php" class="nav-item nav-link">Caracteristicas</a>
+                  
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu text-capitalize">
-                            <a href="blog.html" class="dropdown-item">Blog Grid</a>
-                            <a href="single.html" class="dropdown-item">Blog Detail</a>
+                            <a href="../Dashboard/blog.php" class="dropdown-item">Blog Grid</a>
+                            <a href="../Dashboard/single.php" class="dropdown-item">Blog Detail</a>
                         </div>
                     </div>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Membresias
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="../../views/Membresias/Membresia.views.php">Activas</a>
+                            <a class="dropdown-item" href="../../views/Membresia expirada/membresiaex.views.php">Expiradas</a>
+                        </div>
+                    </div>
+
+                    <a href="../Dashboard/contact.php" class="nav-item nav-link">Contact</a>
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php error_reporting(0); echo  $_SESSION['cli_nombre'] . ' ' .$_SESSION ['cli_apellido']?></span>
