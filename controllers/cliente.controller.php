@@ -7,7 +7,7 @@ $Cliente = new clienteModel;
 
 switch ($_GET['op']) {
     case 'login':
-        $correo = $_POST['cli_correo'];
+        $correo = $_POST['cli_email'];
         $contrasena = $_POST['cli_contrasena'];
     
         if (empty($correo) || empty($contrasena)) {
@@ -29,7 +29,7 @@ switch ($_GET['op']) {
                 $_SESSION['cli_peso'] = $res['cli_peso'];
                 $_SESSION['cli_telefono'] = $res['cli_telefono'];
                 $_SESSION['cli_direccion'] = $res['cli_direccion'];
-                $_SESSION['cli_correo'] = $res['cli_correo'];
+                $_SESSION['cli_email'] = $res['cli_email'];
     
                 header('Location:../views/Dashboard/home.php');
                 exit();
@@ -53,7 +53,7 @@ switch ($_GET['op']) {
         $peso = $_POST['cli_peso'];
         $telefono = $_POST['cli_telefono'];
         $direccion = $_POST['cli_direccion'];
-        $correo = $_POST['cli_correo'];
+        $correo = $_POST['cli_email'];
         $contrasena = $_POST['cli_contrasena'];
         $datos = array();
         $datos = $Cliente->InsertarR($cedula, $Nombres, $Apellidos, $fechanacimiento, $genero, $altura, $peso, $telefono, $direccion,$correo,$contrasena);

@@ -92,7 +92,7 @@
                                     
                                     <div class="form-group">
                                     <label for="em_correo" class="control-label">Correo</label>
-                                        <input type="mail" name="cli_correo" id="cli_correo" class="form-control" required>
+                                        <input type="mail" name="cli_email" id="cli_email" class="form-control" required>
                                     </div>
 
                                     <div class="form-group">

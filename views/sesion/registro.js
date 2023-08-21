@@ -44,7 +44,7 @@ var guardayeditarcliente = (e) => {
     $('#cli_peso').val('');
     $('#cli_telefono').val('');
     $('#cli_direccion').val('');
-    $('#cli_correo').val('');
+    $('#cli_email').val('');
     $('#cli_contrasena').val('');
   };
 

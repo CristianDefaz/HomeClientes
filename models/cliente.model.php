@@ -9,7 +9,7 @@ class clienteModel
    {
        $con = new ClaseConexion();
        $con = $con->ProcedimientoConectar();
-       $cadena = "SELECT * FROM cliente WHERE cli_correo = '$correo'";
+       $cadena = "SELECT * FROM cliente WHERE cli_email = '$correo'";
        $datos = mysqli_query($con, $cadena);
    
        // Verifica si se encontró un registro con el correo electrónico proporcionado
@@ -33,7 +33,7 @@ public function InsertarR($cedula, $Nombres, $Apellidos, $fechanacimiento, $gene
      // Encriptar la contraseña utilizando password_hash()
      $contrasenaEncriptada = password_hash($contrasena, PASSWORD_DEFAULT);
 
-    $cadena = "INSERT INTO `cliente`(`cli_cedula`, `cli_nombre`, `cli_apellido`, `cli_fecha_nacimiento`, `cli_genero`, `cli_altura`, `cli_peso`, `cli_telefono`, `cli_direccion`, `cli_correo`, `cli_contrasena`) VALUES ('$cedula', '$Nombres', '$Apellidos', '$fechanacimiento', '$genero', '$altura', '$peso', '$telefono', '$direccion','$correo','$contrasenaEncriptada')";
+    $cadena = "INSERT INTO `cliente`(`cli_cedula`, `cli_nombre`, `cli_apellido`, `cli_fecha_nacimiento`, `cli_genero`, `cli_altura`, `cli_peso`, `cli_telefono`, `cli_direccion`, `cli_email`, `cli_contrasena`) VALUES ('$cedula', '$Nombres', '$Apellidos', '$fechanacimiento', '$genero', '$altura', '$peso', '$telefono', '$direccion','$correo','$contrasenaEncriptada')";
     if (mysqli_query($con, $cadena)) {
         return 'ok';
     } else {
