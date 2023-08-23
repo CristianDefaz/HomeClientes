@@ -49,8 +49,7 @@ if (isset($_SESSION["cliente_id"])) {
                                                     <th>Fecha inicio</th>
                                                     <th>Fecha fin</th>
                                                     <th>Tiempo Restante</th>
-                                                    <th>Estado</th>
-                                                    <th></th>
+                                                    <th>Estado</th>                   
                                                 </tr>
                                             </thead>
                                             <tbody id='TablaMembresia'></tbody>

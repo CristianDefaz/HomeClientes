@@ -1,45 +1,44 @@
 <?php
 //TODO: archivos requeridos
 require_once('../config/config.php');
-//require_once('../models/empleadosroles.model.php');
+//require_once('../models/imagen.model.php');
 
 class facturaModel
 {
 
-   public function todos()
+    public function todos()
     {
         $con = new ClaseConexion();
-        $con=$con->ProcedimientoConectar();
-        $cadena = "SELECT * FROM facturas INNER JOIN cliente ON facturas.cli_id = cliente.cliente_id INNER JOIN tipo_menbresia ON facturas.men_id = tipo_menbresia.tipo_id INNER JOIN empleado ON facturas.id_empleado = empleado.em_id  ORDER BY cliente.cli_nombre";
+        $con = $con->ProcedimientoConectar();
+        $cadena = "SELECT * FROM recibos_membresia INNER JOIN cliente ON recibos_membresia.cli_id = cliente.cliente_id INNER JOIN tipo_menbresia ON recibos_membresia.men_id = tipo_menbresia.tipo_id";
         $datos = mysqli_query($con, $cadena);
         return $datos;
     }
-
-    public function Insertar($cedula, $fecha,$membresia, $monto,$empleado) {
+    
+    public function Insertar($cliente, $fecha, $membresia, $monto, $estado, $imagen) {
         $con = new ClaseConexion();
         $con = $con->ProcedimientoConectar();
-        $cadena = "INSERT INTO `facturas`(`cli_id`,`fa_fecha`,`men_id`,`fa_montol_total`,`id_empleado`) VALUES ('$cedula', '$fecha','$membresia', '$monto','$empleado')";
-     
+        $cadena = "INSERT INTO `recibos_membresia`(`cli_id`, `fa_fecha`, `men_id`, `fa_montol_total`, `estado`, `imagen`) VALUES ('$cliente','$fecha','$membresia','$monto','$estado','$imagen')";
         if (mysqli_query($con, $cadena)) {
-           return 'ok';
-
+            return 'ok';
         } else {
             return mysqli_error($con);
         }
     }
     
+    
     public function uno($idfactura){
         $con = new ClaseConexion();
         $con = $con->ProcedimientoConectar();
-        $cadena = "SELECT *FROM `facturas`  INNER JOIN cliente ON facturas.cli_id = cliente.cliente_id INNER JOIN empleado ON facturas.id_empleado = empleado.em_id  INNER JOIN tipo_menbresia ON facturas.men_id = tipo_menbresia.tipo_id where factura_id = $idfactura";
+        $cadena = "SELECT *FROM `recibos_membresia` INNER JOIN cliente ON recibos_membresia.cli_id = cliente.cliente_id INNER JOIN tipo_menbresia ON recibos_membresia.men_id = tipo_menbresia.tipo_id where id_recibo = $idfactura";
         $datos = mysqli_query($con, $cadena);
         return $datos;
     }
 
-    public function Actualizar($idfactura, $cliente, $empleado,$membresia, $fecha, $monto) {
+    public function Actualizar($idfactura, $cliente, $fecha, $membresia, $monto, $estado, $imagen) {
         $con = new ClaseConexion();
         $con = $con->ProcedimientoConectar();
-        $cadena = "UPDATE `facturas` SET `cli_id`=$cliente, `fa_fecha`='$fecha',`men_id`=$membresia, `fa_montol_total`=$monto,`id_empleado`=$empleado WHERE factura_id=$idfactura";
+        $cadena = "UPDATE `recibos_membresia` SET `cli_id`='$cliente', `fa_fecha`='$fecha',`men_id`='$membresia', `fa_montol_total`='$monto', `estado`='$estado', `imagen`='$imagen' WHERE id_recibo=$idfactura";
        
         if (mysqli_query($con, $cadena)) {
             return 'ok';
@@ -67,7 +66,7 @@ class facturaModel
     public function Eliminar($idfactura){
         $con = new ClaseConexion();
         $con=$con->ProcedimientoConectar();
-        $cadena = "DELETE FROM `facturas` WHERE factura_id=$idfactura ";
+        $cadena = "DELETE FROM `recibos_membresia` WHERE id_recibo=$idfactura ";
         if (mysqli_query($con, $cadena)){
             return 'ok';
         }else{

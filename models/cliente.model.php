@@ -1,6 +1,7 @@
 <?php
 //TODO: archivos requeridos
 require_once('../config/config.php');
+require_once('../config/sesiones.php');
 //require_once('../models/empleadosroles.model.php');
 
 class clienteModel
@@ -26,6 +27,17 @@ class clienteModel
        return null; // Retorna null si no se encontró el empleado o la contraseña no coincide
    }
    
+   public function todos()
+   {
+       $con = new ClaseConexion();
+       $con=$con->ProcedimientoConectar();
+       $cliente_id = $_SESSION["cliente_id"];
+       $cadena = "SELECT * FROM `cliente` Where cliente_id = $cliente_id";
+       $datos = mysqli_query($con, $cadena);
+       return $datos;
+   }
+
+
 public function InsertarR($cedula, $Nombres, $Apellidos, $fechanacimiento, $genero, $altura, $peso, $telefono, $direccion,$correo,$contrasena) {
     $con = new ClaseConexion();
     $con = $con->ProcedimientoConectar();

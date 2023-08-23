@@ -1,10 +1,11 @@
 <?php
 error_reporting(0);
 // TODO: Requerimientos
-require_once('../config/cors.php');
+//require_once('../config/cors.php');
 require_once('../models/factura.model.php');
-error_reporting(0); echo  $_SESSION["em_id"];
+require_once('../models/imagen.model.php');
 $Factura = new facturaModel;
+$subirfoto = new SubirFoto;
 
 switch ($_GET['op']) {
   
@@ -18,7 +19,7 @@ switch ($_GET['op']) {
         break;
 
         case 'uno':
-            $idfactura = $_POST['factura_id'];
+            $idfactura = $_POST['id_recibo'];
             $datos = array();
             $datos = $Factura->uno($idfactura);
             $respuesta = mysqli_fetch_assoc($datos);
@@ -43,32 +44,48 @@ switch ($_GET['op']) {
                 break;
                 
 
-    case 'insertar':
-        $cliente = $_POST['cli_id'];
-        $fecha = $_POST['fa_fecha'];
-        $membresia = $_POST['men_id'];
-        $monto = $_POST['fa_montol_total'];
-        $empleado = $_POST['id_empleado'];
-        $datos = array();
-        $datos = $Factura->Insertar($cliente,$fecha,$membresia ,$monto, $empleado);
-        echo json_encode($datos);
-        break;
+                case 'insertar':
+                    $cliente = $_POST['cli_id'];
+                    $fecha = $_POST['fa_fecha'];
+                    $membresia = $_POST['men_id'];
+                    $monto = $_POST['fa_montol_total'];
+                    $estado = $_POST['estado'];
+                    //procedimeinto para guardar la imagen en los archivos del proyecto
+                    if ($_FILES['imagen'] != '') {
+                        $imagen = $_FILES['imagen'];
+                        $direccionimg = $subirfoto->guardar($imagen);
+                        $imagen ='';
+                        $imagen = $direccionimg;
+                    }
+                    $datos = array();
+                    $datos = $Factura->Insertar($cliente,$fecha,$membresia,$monto,$estado,$imagen);
+                    echo json_encode($datos);
+                    break;
 
-    case 'actualizar':
-       $idfactura = $_POST['factura_id'];
-        $cliente = $_POST['cli_id'];
-        $fecha = $_POST['fa_fecha'];
-        $membresia = $_POST['men_id'];
-        $monto = $_POST['fa_montol_total'];
-        $empleado = $_POST['id_empleado'];
-        $datos = array();
-        $datos = $Factura->Actualizar( $idfactura, $cliente, $empleado,$membresia, $fecha, $monto);
-        echo json_encode($datos);
-        break;
+
+                    case 'actualizar':
+                    $idfactura = $_POST['id_recibo'];
+                    $cliente = $_POST['cli_id'];
+                    $fecha = $_POST['fa_fecha'];
+                    $membresia = $_POST['men_id'];
+                    $monto = $_POST['fa_montol_total'];
+                    $estado = $_POST['estado'];
+                    //procedimeinto para guardar la imagen en los archivos del proyecto
+                    if ($_FILES['imagen'] != '') {
+                        $imagen = $_FILES['imagen'];
+                        $direccionimg = $subirfoto->guardar($imagen);
+                        $imagen ='';
+                        $imagen = $direccionimg;
+                    }
+                    $datos = array();
+                    $datos = $Factura->Actualizar($idfactura,$cliente,$fecha,$membresia,$monto,$estado,$imagen);
+                    echo json_encode($datos);
+                         break;
+   
       
 
     case 'eliminar':
-        $idfactura = $_POST['factura_id'];
+        $idfactura = $_POST['id_recibo'];
         $datos = array();
         $datos = $Factura->Eliminar($idfactura);
         echo json_encode($datos);

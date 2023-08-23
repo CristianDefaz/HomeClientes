@@ -42,7 +42,15 @@ switch ($_GET['op']) {
         }
         break;
 
-        
+        case 'todos':
+            $todos = array();
+            $datos = $Cliente->todos();
+            while ($fila = mysqli_fetch_assoc($datos)) {
+                $todos[] = $fila;
+            }
+            echo json_encode($todos);
+            break;
+            
     case 'insertar':
         $cedula = $_POST['cli_cedula'];
         $Nombres = $_POST['cli_nombre'];

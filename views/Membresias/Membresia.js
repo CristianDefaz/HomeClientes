@@ -25,7 +25,6 @@ function init() {
           `<td>${membresia.men_fecha_fin}</td>` +
           `<td>${calcularTiempoRestante(membresia.men_fecha_fin, membresia.men_id)}</td>`+
           `<td>${membresia.men_estado}</td>` +
-          `<td>` +
           `</tr>`;
         });
         $("#TablaMembresia").html(html);
