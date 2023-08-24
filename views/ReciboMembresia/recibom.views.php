@@ -84,18 +84,17 @@ if (isset($_SESSION["cliente_id"])) {
                     </div>
     </div>
       <!-- Ventanas Modales -->
-      <div  class="modal fade" id="modalfactura" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <<div class="modal-header">
-                        <h5 class="modal-title" id="tituloModalFactura">Nueva <?php echo $_SESSION["ruta"] ?></h5>
-                        <button type="button" onclick="limpiar()" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-
-                    </div>
-                            <form id="Recibo_form">
-                                <div class="modal-body">
+      <div class="modal fade" id="modalfactura" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="tituloModalFactura">Nueva <?php echo $_SESSION["ruta"] ?></h5>
+                            <button type="button" onclick="limpiar()" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form id="Recibo_form">
+                            <div class="modal-body">
                                 <input type="hidden" name="id_recibo" id="id_recibo">
                                     <div class="form-group">
                                         <label for="cli_id" class="control-label">Cedula Cliente</label>
@@ -123,18 +122,24 @@ if (isset($_SESSION["cliente_id"])) {
                                                 <label  class="control-label">Imagen de Categoria</label>
                                                 <input type="file" name="imagen" id="imagen" class="form-control">
                                             </div>
-
-                                        
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="submit" class="btn btn-primary">Guardar</button>
                                                 <button type="button" class="btn btn-secondary" onclick="limpiar()" data-dismiss="modal">Cerrar</button>
-                                            
                                             </div>
-                            </form>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="imageModal" class="modal">
+                                <div class="modal-content" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                                    <img id="modalImage" src="" alt="Imagen" style="max-width: 100%; max-height: 80vh;">
+                                    <button type="button" class="btn btn-secondary" onclick="cerrarModal()" data-dismiss="modal">Cerrar Imagen</button>
+                                </div>
+                            </div>
 
-                </div>
-            </div>
+                                 
         </div>
 
   

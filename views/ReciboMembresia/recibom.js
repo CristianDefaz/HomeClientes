@@ -9,12 +9,14 @@ function init() {
     cargartablaF();
     cargaselect();
   });
+  
   var cargartablaF = () => {
     var html = "";
-   
+  
     $.post(
-      "../../controllers/factura.controller.php?op=todos", {}, (listafacturas) => {
-       
+      "../../controllers/factura.controller.php?op=todos",
+      {},
+      (listafacturas) => {
         listafacturas = JSON.parse(listafacturas);
         $.each(listafacturas, (index, facturas) => {
           html +=
@@ -26,7 +28,7 @@ function init() {
             `<td>${facturas.fa_fecha}</td>` +
             `<td>${facturas.tipo_menbresia}</td>` +
             `<td>${facturas.tipo_costo}</td>` +
-            `<td>$<img style='width:100px' src='${facturas.imagen}'</td>` +
+            `<td><img style='width:100px; cursor:pointer' src='${facturas.imagen}' onclick='mostrarModal("${facturas.imagen}")'></td>` + // Agregamos el evento onclick para mostrar el modal
             `<td>${facturas.estado}</td>` +
             `<td>` +
             `<button class='btn btn-success' onclick='uno(${facturas.id_recibo})'>Editar</button>` +
@@ -38,6 +40,30 @@ function init() {
       }
     );
   };
+  
+  // Función para mostrar el modal con la imagen
+  function mostrarModal(imageSrc) {
+    var modal = document.getElementById("imageModal");
+    var modalImage = document.getElementById("modalImage");
+    modalImage.src = imageSrc;
+    modal.style.display = "block";
+  
+    var closeModal = document.getElementsByClassName("close")[0];
+    closeModal.onclick = function () {
+      modal.style.display = "none";
+    };
+  
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+  }
+  
+  function cerrarModal() {
+    var modal = document.getElementById("imageModal");
+    modal.style.display = "none";
+}
 
 
 
