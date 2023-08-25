@@ -9,13 +9,14 @@ function init() {
     tablamembresia();
 
   });
+  var listamembresiaData;
   var tablamembresia = () => {
     var html = "";
     $.post(
         "../../controllers/membresia.controller.php?op=todos", {}, (listamembresia) => {
           console.log(listamembresia); // Agrega esta línea para depurar
-          listamembresia = JSON.parse(listamembresia);
-        $.each(listamembresia, (index, membresia) => {
+          listamembresiaData = JSON.parse(listamembresia);
+          $.each(listamembresiaData, (index, membresia) => {
           html +=
           `<tr>` +
           `<td>${index + 1}</td>` +

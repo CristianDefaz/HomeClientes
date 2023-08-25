@@ -3,6 +3,7 @@ error_reporting(0);
 // TODO: Requerimientos
 require_once('../config/sesiones.php');
 require_once('../models/cliente.model.php');
+
 $Cliente = new clienteModel;
 
 switch ($_GET['op']) {
@@ -31,6 +32,8 @@ switch ($_GET['op']) {
                 $_SESSION['cli_direccion'] = $res['cli_direccion'];
                 $_SESSION['cli_email'] = $res['cli_email'];
     
+                $_SESSION['bienvenida'] = 'Bienvenido, ' . $res['cli_nombre'] . '! Has iniciado sesión exitosamente.';
+                
                 header('Location:../views/Dashboard/home.php');
                 exit();
             } else {

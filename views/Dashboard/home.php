@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 <?php require_once('../html/head.php') ?>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
 </head>
 
 <body class="bg-white">
     
-    <?php include_once('../html/header.php')  ?>
+    <?php include_once('../html/header.php') ?>
 
     <!-- Carousel Start -->
     <div class="container-fluid p-0">
@@ -453,6 +454,27 @@
         </div>
     </div>
     <!-- Blog End -->
+
+<!-- Luego, carga tu archivo Membresia.js que contiene calcularTiempoRestante() -->
+<script src="../Membresias/Membresia.js"></script>
+
+<!-- Finalmente, coloca el código que usa calcularTiempoRestante() -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        <?php
+        session_start();
+
+        if (isset($_SESSION['bienvenida'])) {
+            echo "Swal.fire({
+                icon: 'success',
+                title: 'Bienvenida',
+                text: '{$_SESSION['bienvenida']} Tu membresía expirará en ' + calcularTiempoRestante(listamembresiaData[0].men_fecha_fin, listamembresiaData[0].men_id),
+            });";
+            unset($_SESSION['bienvenida']); // Limpiar la variable de sesión
+        }
+        ?>
+    });
+</script>
 
 
       <!-- Footer -->
